@@ -1,0 +1,60 @@
+# примеры API-запросов
+
+@baseUrl = https://localhost:8000/api
+
+###
+
+# получение объявлений
+GET localhost:8000/api/advertisements/
+Content-Type: application/json
+# Authorization: Token 0c235b2071294823cd0731959ee8b5d7262a5e8c
+
+###
+
+# создание объявления
+POST localhost:8000/api/advertisements/
+Content-Type: application/json
+Authorization: Token b76bafc392f3cc47f9b58feba995dc182406d84d
+
+{
+  "title": "Шкаф IKEA 13",
+  "description": "Срочно"
+}
+
+###
+
+# попытка поменять объявление
+PATCH localhost:8000/api/advertisements/1/
+Content-Type: application/json
+Authorization: Token b76bafc392f3cc47f9b58feba995dc182406d84d
+
+{
+  "status": "OPEN"
+}
+
+###
+
+DELETE localhost:8000/api/advertisements/8/
+Content-Type: application/json
+Authorization: Token 903b63be03cae6b50fa26db50922b42d9430c2ef
+
+###
+
+# фильтрация по создателю
+GET localhost:8000/api/advertisements/?creator=3
+Content-Type: application/json
+# Authorization: Token 0c235b2071294823cd0731959ee8b5d7262a5e8c
+
+###
+
+# фильтрация по дате
+GET localhost:8000/api/advertisements/?created_at_after=2022-08-07
+Content-Type: application/json
+Authorization: Token 0c235b2071294823cd0731959ee8b5d7262a5e8c
+
+###
+
+# фильтрация по статусу
+GET localhost:8000/api/advertisements/?status=CLOSED
+Content-Type: application/json
+# Authorization: Token 0c235b2071294823cd0731959ee8b5d7262a5e8c
