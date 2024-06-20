@@ -41,12 +41,3 @@ class AdvertisementSerializer(serializers.ModelSerializer):
         if self.context['request'].method == 'PUT' and data.get('status') == 'OPEN' and len(ad_quantity) >= 10:
             raise ValidationError('Вы не можете создавать более 10 объявлений')
         return data
-
-        # TODO: добавьте требуемую валидацию
-
-        # Простановка значения поля создатель по-умолчанию.
-        # Текущий пользователь является создателем объявления
-        # изменить или переопределить его через API нельзя.
-        # обратите внимание на `context` – он выставляется автоматически
-        # через методы ViewSet.
-        # само поле при этом объявляется как `read_only=True`
