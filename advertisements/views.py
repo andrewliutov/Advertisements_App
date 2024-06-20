@@ -21,6 +21,3 @@ class AdvertisementViewSet(ModelViewSet):
             return [IsAuthenticated(), IsOwnerOrReadOnly()]
         else:
             return []
-
-    # TODO: настройте ViewSet, укажите атрибуты для кверисета,
-    #   сериализаторов и фильтров
